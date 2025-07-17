@@ -10,6 +10,7 @@ public class DailyEntry {
     private Long id;
 
     private String date;
+
     private double morningMilk;
     private double eveningMilk;
     private double rate;
@@ -19,20 +20,6 @@ public class DailyEntry {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
-
-    // Constructors
-    public DailyEntry() {}
-
-    public DailyEntry(Long id, String date, double morningMilk, double eveningMilk, double rate, double fat, double snf, Customer customer) {
-        this.id = id;
-        this.date = date;
-        this.morningMilk = morningMilk;
-        this.eveningMilk = eveningMilk;
-        this.rate = rate;
-        this.fat = fat;
-        this.snf = snf;
-        this.customer = customer;
-    }
 
     // Getters and Setters
     public Long getId() {

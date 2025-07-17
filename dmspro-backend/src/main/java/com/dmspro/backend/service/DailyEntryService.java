@@ -1,5 +1,6 @@
 package com.dmspro.backend.service;
 
+import com.dmspro.backend.dto.DailyEntryRequest;
 import com.dmspro.backend.model.Customer;
 import com.dmspro.backend.model.DailyEntry;
 import com.dmspro.backend.repository.CustomerRepository;
@@ -23,15 +24,20 @@ public class DailyEntryService {
     @Autowired
     private CustomerRepository customerRepo;
 
-    public DailyEntry saveEntry(DailyEntry request) throws Exception {
-        Long customerId = request.getCustomer().getId();
-        Customer customer = customerRepo.findById(customerId)
+    public DailyEntry saveEntry(DailyEntryRequest request) throws Exception {
+        Customer customer = customerRepo.findById(request.getCustomerId())
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
 
-        request.setCustomer(customer);
-        request.setDate(LocalDate.now().toString());
+        DailyEntry entry = new DailyEntry();
+        entry.setCustomer(customer);
+        entry.setMorningMilk(request.getMorningMilk());
+        entry.setEveningMilk(request.getEveningMilk());
+        entry.setRate(request.getRate());
+        entry.setFat(request.getFat());
+        entry.setSnf(request.getSnf());
+        entry.setDate(LocalDate.now().toString());
 
-        DailyEntry saved = entryRepo.save(request);
+        DailyEntry saved = entryRepo.save(entry);
         generatePdfForCustomer(customer);
         return saved;
     }

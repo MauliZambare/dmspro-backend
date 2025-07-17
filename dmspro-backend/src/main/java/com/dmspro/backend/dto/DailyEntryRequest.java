@@ -1,15 +1,16 @@
 package com.dmspro.backend.dto;
 
 public class DailyEntryRequest {
-    private Long customerId;
-    private Double morningMilk;
-    private Double eveningMilk;
-    private Double rate;
-    private Double fat;
-    private Double snf;
-    private Double morningQuantity;
 
-    // Getters and Setters
+    private Long customerId;
+    private double morningMilk;
+    private double eveningMilk;
+    private double rate;
+    private double fat;
+    private double snf;
+    private double morningQuantity;
+    private double eveningQuantity;
+
     public Long getCustomerId() {
         return customerId;
     }
@@ -18,51 +19,59 @@ public class DailyEntryRequest {
         this.customerId = customerId;
     }
 
-    public Double getMorningMilk() {
+    public double getMorningMilk() {
         return morningMilk;
     }
 
-    public void setMorningMilk(Double morningMilk) {
+    public void setMorningMilk(double morningMilk) {
         this.morningMilk = morningMilk;
     }
 
-    public Double getEveningMilk() {
+    public double getEveningMilk() {
         return eveningMilk;
     }
 
-    public void setEveningMilk(Double eveningMilk) {
+    public void setEveningMilk(double eveningMilk) {
         this.eveningMilk = eveningMilk;
     }
 
-    public Double getRate() {
+    public double getRate() {
         return rate;
     }
 
-    public void setRate(Double rate) {
+    public void setRate(double rate) {
         this.rate = rate;
     }
 
-    public Double getFat() {
+    public double getFat() {
         return fat;
     }
 
-    public void setFat(Double fat) {
+    public void setFat(double fat) {
         this.fat = fat;
     }
 
-    public Double getSnf() {
+    public double getSnf() {
         return snf;
     }
 
-    public void setSnf(Double snf) {
+    public void setSnf(double snf) {
         this.snf = snf;
     }
 
-    public Double getMorningQuantity() {
+    public double getMorningQuantity() {
         return morningQuantity;
     }
 
-    public void setMorningQuantity(Double morningQuantity) {
+    public void setMorningQuantity(double morningQuantity) {
         this.morningQuantity = morningQuantity;
+    }
+
+    public double getEveningQuantity() {
+        return eveningQuantity;
+    }
+
+    public void setEveningQuantity(double eveningQuantity) {
+        this.eveningQuantity = eveningQuantity;
     }
 }
